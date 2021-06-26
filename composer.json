@@ -7,7 +7,7 @@
         "email": "noualdev@gmail.com",
         "homepage": "https://github.com/NoualAli"
     }],
-    "homepage": "https://github.com/nldev/filesystem",
+    "homepage": "https://github.com/NoualAli/filesystem",
     "keywords": ["Laravel", "FileSystem"],
     "require": {
         "illuminate/support": "~7|~8"
