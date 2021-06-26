@@ -14,14 +14,17 @@ class FileSystemServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nldev');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystem');
-        $this->loadMigrationsFrom(__DIR__.'../migrations');
-        $this->loadRoutesFrom(__DIR__.'/fsroutes.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        $this->publishes([
+            __DIR__.'../migrations' => database_path('migrations'),
+            __DIR__.'/Traits' => app_path('Traits'),
+            __DIR__.'/Models' => app_path('Models'),
+        ], 'nldev/FS');
     }
 
     /**
@@ -31,6 +34,10 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystem');
+        $this->loadMigrationsFrom(__DIR__.'/../migrations');
+        $this->loadRoutesFrom(__DIR__.'/fsroutes.php');
+
         $this->mergeConfigFrom(__DIR__.'/../config/filesystem.php', 'filesystem');
 
         // Register the service the package provides.
