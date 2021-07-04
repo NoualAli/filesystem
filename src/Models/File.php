@@ -99,7 +99,7 @@ class File extends Model
     public function getLinkAttribute()
     {
         $icon = $this->getIcon();
-        return '<a href="' . $this->asset_path . '" target="_blank">' .
+        return '<a href="' . $this->path . '" target="_blank" class="has-text-centered">' .
             '<div class="icons">' .
             '<i class="las la-' . $icon['name'] . ' fa-lg has-text-' . $icon['color'] . '"></i>' .
             '</div>' .
@@ -113,7 +113,7 @@ class File extends Model
      */
     private function getIcon(): array
     {
-        $extension = $this->file_extension;
+        $extension = $this->extension;
         $icons = $this->icons();
 
         $name = '';
