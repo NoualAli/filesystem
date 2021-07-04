@@ -51,7 +51,7 @@ class File extends Model
      * @return string
      */
     public function getLinkAttribute(){
-        return '<a href="'.$this->path.'" target="_blank">'.$this->name.'</a>';
+        return '<a href="'.$this->path.'" target="_blank">'.$this->file_name.'</a>';
     }
 
     /**
@@ -60,7 +60,7 @@ class File extends Model
      * @return string
      */
     public function getPathAttribute(){
-        return asset($this->directory.'/'.$this->name);
+        return asset($this->directory.'/'.$this->file_name);
     }
 
     /**
@@ -69,7 +69,7 @@ class File extends Model
      * @return string
      */
     public function getPublicPathAttribute(){
-        return public_path($this->directory.'/'.$this->name);
+        return public_path($this->directory.'/'.$this->file_name);
     }
 
     /**
