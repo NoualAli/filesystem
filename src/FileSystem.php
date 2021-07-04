@@ -62,11 +62,8 @@ class FileSystem
     {
         if (File::exists($file->public_path)) {
             unlink($file->public_path);
-            $file->delete();
-            return back()->withSuccess("Le fichier a bien été supprimer.");
-        } else {
-            return back()->with('error', "Le fichier que vous tentez de supprimez n'existe pas.");
         }
+        return $file->delete();
     }
 
     /**

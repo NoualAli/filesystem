@@ -27,15 +27,15 @@ class FileSystemController extends Controller{
         return view('FileSystem::create');
     }
 
-    public function store(Request $request){
-        $file = $request->file('file');
-        $user = User::find(1);
-        $upload = FileSystem::upload($file, $user);
-        return $upload ? back()->withMessage('File uploaded with success') : back()->withMessage('Error when processing to upload file');
-    }
+    // public function store(Request $request){
+    //     $file = $request->file('file');
+    //     $user = User::find(1);
+    //     $upload = FileSystem::upload($file, $user);
+    //     return $upload ? back()->withMessage('File uploaded with success') : back()->withMessage('Error when processing to upload file');
+    // }
 
-    public function destroy(File $file){
-        return FileSystem::remove($file);
-    }
+    // public function destroy(File $file){
+    //     return FileSystem::remove($file);
+    // }
 
 }
