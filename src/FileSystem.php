@@ -47,7 +47,7 @@ class FileSystem
         $size = $file->getSize();
 
         return ModelFile::create([
-            'name' => $name,
+            'file_name' => $name,
             'mimetype' => $mimeType,
             'extension' => $extension,
             'size' => $size,
