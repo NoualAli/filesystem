@@ -2,7 +2,6 @@
 
 namespace NLDev\FileSystem;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\UploadedFile;
 use NLDev\FileSystem\Models\File as ModelFile;
 use Illuminate\Support\Facades\File;
@@ -58,7 +57,14 @@ class FileSystem
         ]);
     }
 
-    public function remove(ModelFile $file): RedirectResponse
+    /**
+     * Remove file from database and storage
+     *
+     * @param ModelFile $file
+     *
+     * @return bool
+     */
+    public function remove(ModelFile $file): bool
     {
         if (File::exists($file->public_path)) {
             unlink($file->public_path);

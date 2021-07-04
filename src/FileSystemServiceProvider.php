@@ -36,9 +36,7 @@ class FileSystemServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystem');
         $this->loadMigrationsFrom(__DIR__.'/../migrations');
-        $this->loadRoutesFrom(__DIR__.'/fsroutes.php');
 
-        $this->mergeConfigFrom(__DIR__.'/../config/filesystem.php', 'filesystem');
 
         // Register the service the package provides.
         $this->app->singleton('filesystem', function ($app) {
@@ -63,27 +61,5 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     protected function bootForConsole(): void
     {
-        // Publishing the configuration file.
-        $this->publishes([
-            __DIR__.'/../config/filesystem.php' => config_path('filesystem.php'),
-        ], 'filesystem.config');
-
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/nldev'),
-        ], 'filesystem.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/nldev'),
-        ], 'filesystem.views');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/nldev'),
-        ], 'filesystem.views');*/
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }
