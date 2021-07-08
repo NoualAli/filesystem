@@ -90,6 +90,24 @@ class File extends Model
         return Carbon::parse($value)->format('d-m-Y H:i');
     }
 
+    public function getSizeFormatedAttribute()
+    {
+        return $this->formatBytes($this->size);
+    }
+
+    public function getSizeAttribute($value){
+        $size = null;
+        if (!$value) {
+            if ($this->public_path) {
+                if (file_exists($this->public_path)) {
+                    $size = fileSize($this->public_path);
+                }
+            }
+        } else {
+            $size = $value;
+        }
+        return $size;
+    }
 
     /**
      * Affiche un lien vers le fichier
@@ -105,6 +123,26 @@ class File extends Model
             '</div>' .
             '</a>';
     }
+
+    /**
+     * Scopes
+     */
+
+    /**
+     * Renvoie la taille total des fichiers sur le disque
+     *
+     * @param mixed $query
+     *
+     * @return string
+     */
+    public function scopeTotalDataOnDisk($query): string
+    {
+        return $this->formatBytes($query->get()->sum('size'));
+    }
+
+    /**
+     * Helpers
+     */
 
     /**
      * Détermine le type d'icone à utiliser
