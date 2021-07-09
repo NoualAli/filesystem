@@ -4,7 +4,7 @@ namespace NLDev\FileSystem\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class FileSystem extends Facade
+class FileSystemUploader extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class FileSystem extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'filesystem';
+        return 'filesystemuploader';
     }
 }

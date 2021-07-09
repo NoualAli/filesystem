@@ -13,9 +13,6 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nldev');
-
-        // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -51,7 +48,7 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['filesystem'];
+        return ['filesystemuploader'];
     }
 
     /**
