@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use NLDev\FileSystem\Traits\HasUuid;
 
-class File extends Model
+class FileSystemUploaderModel extends Model
 {
     use HasUuid;
 
