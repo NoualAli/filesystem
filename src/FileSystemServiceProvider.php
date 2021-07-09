@@ -13,10 +13,6 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->bootForConsole();
-        }
-
         $this->publishes([
             __DIR__.'../migrations' => database_path('migrations'),
             __DIR__.'/Traits' => app_path('Traits'),
@@ -31,13 +27,13 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystem');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystemUploader');
         $this->loadMigrationsFrom(__DIR__.'/../migrations');
 
 
         // Register the service the package provides.
         $this->app->singleton('filesystem', function ($app) {
-            return new FileSystem;
+            return new FileSystemUploader;
         });
     }
 
@@ -49,14 +45,5 @@ class FileSystemServiceProvider extends ServiceProvider
     public function provides()
     {
         return ['filesystemuploader'];
-    }
-
-    /**
-     * Console-specific booting.
-     *
-     * @return void
-     */
-    protected function bootForConsole(): void
-    {
     }
 }

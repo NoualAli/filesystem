@@ -3,11 +3,11 @@
 namespace NLDev\FileSystem;
 
 use Illuminate\Http\UploadedFile;
-use NLDev\FileSystem\Models\File as ModelFile;
+use NLDev\FileSystem\Models\FileSystemUploaderModel;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\File\File as SMFile;
 
-class FileSystem
+class FileSystemUploader
 {
 
     /**
@@ -37,16 +37,16 @@ class FileSystem
      * @param SMFile $file
      * @param string $directory
      *
-     * @return ModelFile
+     * @return FileSystemUploaderModel
      */
-    private function store(SMFile $file, string $directory, $model): ModelFile
+    private function store(SMFile $file, string $directory, $model): FileSystemUploaderModel
     {
         $name = $file->getFilename();
         $extension = $file->getExtension();
         $mimeType = mime_content_type(public_path($directory . '/' . $file->getFilename()));
         $size = $file->getSize();
 
-        return ModelFile::create([
+        return FileSystemUploaderModel::create([
             'file_name' => $name,
             'mimetype' => $mimeType,
             'extension' => $extension,
@@ -64,7 +64,7 @@ class FileSystem
      *
      * @return bool
      */
-    public function remove(ModelFile $file): bool
+    public function remove(FileSystemUploaderModel $file): bool
     {
         if (File::exists($file->public_path)) {
             unlink($file->public_path);
