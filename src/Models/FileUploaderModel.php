@@ -26,6 +26,8 @@ class FileUploaderModel extends Model
         'callable_type',
     ];
 
+    public $table = 'files';
+
     /**
      * Indicates if the model should be timestamped.
      *
