@@ -3,6 +3,7 @@
 namespace NLDev\FileUploader;
 
 use Illuminate\Support\ServiceProvider;
+use NLDev\FileUploader\Models\FileUploaderModel;
 
 class FileUploaderServiceProvider extends ServiceProvider
 {
