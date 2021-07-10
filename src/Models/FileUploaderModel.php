@@ -1,10 +1,10 @@
 <?php
 
-namespace NLDev\FileSystem\Models;
+namespace NLDev\FileUploader\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use NLDev\FileSystem\Traits\HasUuid;
+use NLDev\FileUploader\Traits\HasUuid;
 
 class FileUploaderModel extends Model
 {

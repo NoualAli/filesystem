@@ -3,7 +3,7 @@
 namespace NLDev\FileUploader;
 
 use Illuminate\Http\UploadedFile;
-use NLDev\FileSystem\Models\FileUploaderModel;
+use NLDev\FileUploader\Models\FileUploaderModel;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\File\File as SMFile;
 

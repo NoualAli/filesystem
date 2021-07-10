@@ -1,6 +1,6 @@
 <?php
 
-namespace NLDev\FileSystem\Facades;
+namespace NLDev\FileUploader\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
