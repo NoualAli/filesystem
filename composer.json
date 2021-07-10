@@ -8,7 +8,7 @@
         "homepage": "https://github.com/NoualAli"
     }],
     "homepage": "https://github.com/NoualAli/filesystem",
-    "keywords": ["Laravel", "FileSystem"],
+    "keywords": ["Laravel", "FileUploader"],
     "require": {
         "illuminate/support": "~7|~8"
     },
@@ -18,21 +18,21 @@
     },
     "autoload": {
         "psr-4": {
-            "NLDev\\FileSystem\\": "src/"
+            "NLDev\\FileUploader\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NLDev\\FileSystem\\Tests\\": "tests"
+            "NLDev\\FileUploader\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "NLDev\\FileSystem\\FileSystemServiceProvider"
+                "NLDev\\FileUploader\\FileUploaderServiceProvider"
             ],
             "aliases": {
-                "FileSystem": "NLDev\\FileSystem\\Facades\\FileSystem"
+                "FileUploader": "NLDev\\FileUploader\\Facades\\FileUploader"
             }
         }
     }

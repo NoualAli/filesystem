@@ -1,6 +1,6 @@
 <?php
 
-namespace NLDev\FileSystem\Traits;
+namespace NLDev\FileUploader\Traits;
 
 use Illuminate\Support\Str;
 

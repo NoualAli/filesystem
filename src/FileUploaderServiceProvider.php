@@ -1,10 +1,10 @@
 <?php
 
-namespace NLDev\FileSystem;
+namespace NLDev\FileUploader;
 
 use Illuminate\Support\ServiceProvider;
 
-class FileSystemServiceProvider extends ServiceProvider
+class FileUploaderServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
@@ -27,13 +27,13 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileSystemUploader');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileUploader');
         $this->loadMigrationsFrom(__DIR__.'/../migrations');
 
 
         // Register the service the package provides.
-        $this->app->singleton('filesystem', function ($app) {
-            return new FileSystemUploader;
+        $this->app->singleton('fileuploader', function ($app) {
+            return new FileUploaderModel;
         });
     }
 
@@ -44,6 +44,6 @@ class FileSystemServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['filesystemuploader'];
+        return ['fileuploader'];
     }
 }
