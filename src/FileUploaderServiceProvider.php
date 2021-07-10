@@ -3,7 +3,6 @@
 namespace NLDev\FileUploader;
 
 use Illuminate\Support\ServiceProvider;
-use NLDev\FileUploader\Models\FileUploaderModel;
 
 class FileUploaderServiceProvider extends ServiceProvider
 {
@@ -34,7 +33,7 @@ class FileUploaderServiceProvider extends ServiceProvider
 
         // Register the service the package provides.
         $this->app->singleton('fileuploader', function ($app) {
-            return new FileUploaderModel;
+            return new FileUploader;
         });
     }
 
