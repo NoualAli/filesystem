@@ -21,7 +21,7 @@ class FileUploaderServiceProvider extends ServiceProvider
         ], 'nldev/traits');
         $this->publishes([
             __DIR__ . '/Models' => app_path('Models'),
-        ], 'nldev/migrations');
+        ], 'nldev/models');
     }
 
     /**
