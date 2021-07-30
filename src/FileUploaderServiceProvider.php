@@ -14,10 +14,14 @@ class FileUploaderServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'../migrations' => database_path('migrations'),
-            __DIR__.'/Traits' => app_path('Traits'),
-            __DIR__.'/Models' => app_path('Models'),
-        ], 'nldev/FS');
+            __DIR__ . '/../migrations' => database_path('migrations'),
+        ], 'nldev/migrations');
+        $this->publishes([
+            __DIR__ . '/Traits' => app_path('Traits'),
+        ], 'nldev/traits');
+        $this->publishes([
+            __DIR__ . '/Models' => app_path('Models'),
+        ], 'nldev/migrations');
     }
 
     /**
@@ -27,8 +31,8 @@ class FileUploaderServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'FileUploader');
-        $this->loadMigrationsFrom(__DIR__.'/../migrations');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'FileUploader');
+        $this->loadMigrationsFrom(__DIR__ . '/../migrations');
 
 
         // Register the service the package provides.
